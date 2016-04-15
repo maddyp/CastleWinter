@@ -7,18 +7,21 @@ Movie background;
 void setup() {
   fullScreen(P2D);
   orientation(LANDSCAPE);
-  background= new Movie(this, "house.mp4");
+  background= new Movie(this, "Winter.mp4");
   background.loop();
   castle= loadImage("4.png");
   cloud= loadImage("cloud4.png");
   sprite = loadImage("snowflake.png");
-  ps = new ParticleSystem(4000);
+  ps = new ParticleSystem(6000);
   hint(DISABLE_DEPTH_MASK);
+}
+  void movieEvent(Movie m) {
+  m.read();
 } 
 
 void draw () {
- // image(castle,0,0);
-  background(castle);
+  background(0);
+  image(background,0,0);
   ps.update();
   ps.display();
   float targetX = mouseX;
